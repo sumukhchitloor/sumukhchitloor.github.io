@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on t0x1n</title>
+    <link>http://localhost:1313/posts/</link>
+    <description>Recent content in Posts on t0x1n</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 30 May 2025 23:26:52 +0530</lastBuildDate>
+    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>First blog</title>
+      <link>http://localhost:1313/posts/ddjkfnkdfnkfnkngkfn/</link>
+      <pubDate>Fri, 30 May 2025 23:26:52 +0530</pubDate>
+      <guid>http://localhost:1313/posts/ddjkfnkdfnkfnkngkfn/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Using pip to Run Malicious Commands</title>
+      <link>http://localhost:1313/posts/pip-malicious-commands/</link>
+      <pubDate>Sun, 31 Mar 2024 10:00:00 +0530</pubDate>
+      <guid>http://localhost:1313/posts/pip-malicious-commands/</guid>
+      <description>&lt;p&gt;So, recently I was solving a hacktheboox room OnlyForYou and I got the user flag but I was struggling to get the root flag. User had this previlage to run as sudo.&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;root&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; NOPASSWD: /usr/bin/pip3 download http&lt;span class=&#34;se&#34;&gt;\:&lt;/span&gt;//127.0.0.1&lt;span class=&#34;se&#34;&gt;\:&lt;/span&gt;3000/*.tar.gz&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/pip-malicious-blog/pip-exploit.png&#34; alt=&#34;Sudo pip privilege showing download permission&#34; title=&#34;Sudo permission to run pip download&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;But I had never seen a malicious use of pip before so I started doing research. And I founf some interesting stuffs.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

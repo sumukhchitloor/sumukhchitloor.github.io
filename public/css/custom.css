@@ -1,0 +1,68 @@
+/* Style the site title/header */
+.navigation-title {
+  font-weight: 600 !important; /* Normal weight, not bold */
+  text-transform: lowercase !important; /* Force lowercase */
+  font-size: 2.0rem !important;
+  letter-spacing: 0.1em; /* Add some letter spacing */
+}
+
+/* Prevent blue hover effect on site title */
+.navigation-title:hover,
+.navigation-title a:hover,
+a.navigation-title:hover {
+  color: inherit !important; /* Keep the same color on hover */
+  text-decoration: none !important; /* Remove any underline */
+}
+
+/* Style navigation links */
+.navigation-list {
+  font-weight: 400 !important; /* Normal weight for nav items */
+}
+
+.navigation-item a {
+  font-weight: 400 !important; /* Ensure links are not bold */
+}
+
+/* Style the author name (h1) */
+.about h1 {
+  font-size: 3.0rem !important;
+  font-weight: 600 !important; /* Changed from 700 to 400 for normal weight */
+  margin-bottom: 0.5rem !important;
+  letter-spacing: 0.0em;
+}
+
+/* Style the info/tagline (h2) */
+.about h2 {
+  font-size: 1.7rem !important; /* Reduced from 1.8rem for better proportion */
+  font-weight: 400 !important; /* Normal weight */
+  margin-top: 0 !important;
+  margin-bottom: 2rem !important;
+  line-height: 1.7 !important;
+  color: #8c9187 !important; /* Added font color */
+}
+
+/* If you want to show the info as separate lines visually */
+.about h2::after {
+  content: "";
+  display: block;
+}
+
+/* Replace bullet points with line breaks in the info text */
+.about h2:has(•) {
+  white-space: pre-line;
+}
+
+/* Add some security-themed styling */
+.social-links a {
+  transition: transform 0.2s, color 0.2s;
+}
+
+.social-links a:hover {
+  transform: scale(1.1);
+  color: #00ff00;
+}
+
+/* Additional styling for better visual hierarchy */
+body {
+  font-weight: 400; /* Ensure base font weight is normal */
+}
