@@ -1,4 +1,4 @@
-baseURL = 'http://localhost:1313'
+baseURL = 'https://sumukhchitloor.github.io'
 languageCode = 'en-us'
 title = 't0x1n'
 theme = 'hugo-coder'
