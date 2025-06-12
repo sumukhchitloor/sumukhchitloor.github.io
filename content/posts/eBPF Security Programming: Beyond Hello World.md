@@ -2,7 +2,7 @@
 draft = false
 date = 2025-06-12T15:44:58+05:30
 title = "eBPF Security Programming: Beyond Hello World"
-description = "Complete guide to eBPF security programming with C and libbpf. Learn to build container escape detectors, compare BCC vs libbpf vs bpftrace"
+description = "Complete guide to eBPF security programming with C and libbpf. Compare BCC vs libbpf vs bpftrace"
 slug = "ebpf-security-programming-beyond-hello-world"
 authors = []
 tags = ["eBPF", "libbpf", "BCC", "Linux Security", "bpftrace", "Security Monitoring", "Kernel Programming"]
