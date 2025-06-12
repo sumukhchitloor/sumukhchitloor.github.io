@@ -2,14 +2,56 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/about/</loc>
-    <lastmod>2025-05-31T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/tags/bcc/</loc>
+    <lastmod>2025-06-07T15:44:58+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2025-05-31T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/tags/bpftrace/</loc>
+    <lastmod>2025-06-07T15:44:58+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/co-re/</loc>
+    <lastmod>2025-06-07T15:44:58+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/container-security/</loc>
+    <lastmod>2025-06-07T15:44:58+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/ebpf/</loc>
+    <lastmod>2025-06-07T15:44:58+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/ebpf-security-programming-beyond-hello-world/</loc>
+    <lastmod>2025-06-07T15:44:58+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/series/ebpf-security-series/</loc>
+    <lastmod>2025-06-07T15:44:58+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/kernel-programming/</loc>
+    <lastmod>2025-06-07T15:44:58+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/libbpf/</loc>
+    <lastmod>2025-06-07T15:44:58+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/linux-security/</loc>
+    <lastmod>2025-06-07T15:44:58+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2025-05-30T23:26:52+05:30</lastmod>
+    <lastmod>2025-06-07T15:44:58+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/security-monitoring/</loc>
+    <lastmod>2025-06-07T15:44:58+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/security-programming/</loc>
+    <lastmod>2025-06-07T15:44:58+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/series/</loc>
+    <lastmod>2025-06-07T15:44:58+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2025-06-07T15:44:58+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2025-06-07T15:44:58+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/about/</loc>
+    <lastmod>2025-05-31T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/code-execution/</loc>
     <lastmod>2024-03-31T10:00:00+05:30</lastmod>
@@ -27,12 +69,6 @@
     <lastmod>2024-03-31T10:00:00+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/security/</loc>
-    <lastmod>2024-03-31T10:00:00+05:30</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/series/</loc>
-    <lastmod>2024-03-31T10:00:00+05:30</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
     <lastmod>2024-03-31T10:00:00+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/pip-malicious-commands/</loc>

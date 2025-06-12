@@ -6,8 +6,15 @@
     <description>Recent content in Posts on t0x1n</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 31 Mar 2024 10:00:00 +0530</lastBuildDate>
+    <lastBuildDate>Thu, 12 Jun 2025 15:44:58 +0530</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>eBPF Security Programming: Beyond Hello World</title>
+      <link>http://localhost:1313/posts/ebpf-security-programming-beyond-hello-world/</link>
+      <pubDate>Thu, 12 Jun 2025 15:44:58 +0530</pubDate>
+      <guid>http://localhost:1313/posts/ebpf-security-programming-beyond-hello-world/</guid>
+      <description>&lt;p&gt;This isn&amp;rsquo;t your typical &amp;ldquo;What is eBPF?&amp;rdquo; tutorial. The internet is already drowning in those - complete with the same networking packet filtering examples and basic syscall tracing demos. Instead, we&amp;rsquo;re diving straight into the deep end: security-focused eBPF programming that actually matters in the real world.&lt;/p&gt;&#xA;&lt;p&gt;You know that feeling when you&amp;rsquo;re monitoring your systems and something fishy is happening, but your security tools are about as useful as a chocolate teapot? Welcome to the club. Traditional security monitoring is like trying to catch a ninja with a butterfly net - theoretically possible, but practically hilarious.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Using pip to Run Malicious Commands</title>
       <link>http://localhost:1313/posts/pip-malicious-commands/</link>
